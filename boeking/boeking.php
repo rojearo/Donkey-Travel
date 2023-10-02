@@ -1,7 +1,7 @@
 <?php
 //main page voor de boekingen CRUD+S
 
-class Boekingen
+class Boeking
 {
     public $boekingStartLocatie;
     public $boekingHoeveelDagen;
@@ -91,10 +91,47 @@ class Boekingen
         return $this->boekingEindTijd;
     }
 
+// Geeft de aangemaakte boeking weer op het scherm
+    public function boekingAfdrukken()
+    {
+        echo $this->get_boekingStartLocatie();
+        echo "<br/>";
+        echo $this->get_boekingHoeveelDagen();
+        echo "<br/>";
+        echo $this->get_boekingEindLocatie();
+        echo "<br/><br/>";
+        echo $this->get_boekingPauzePlaatsen();
+        echo "<br/><br/>";
+        echo $this->get_boekingOvernachtingen();
+        echo "<br/><br/>";
+        echo $this->get_boekingBeginTijd();
+        echo "<br/><br/>";
+        echo $this->get_boekingEindTijd();
+        echo "<br/><br/>";
+    }
 
+// De function om de boeking te maken
+    public function createBoeking()
+    {
+        require "../config.php";
+        try {
+            $boekingStartLocatie = $this->get_boekingStartLocatie();
+            $boekingHoeveelDagen = $this->get_boekingHoeveelDagen();
+            $boekingEindLocatie = $this->get_boekingEindLocatie();
+            $boekingPauzePlaatsen = $this->get_boekingPauzePlaatsen();
+            $boekingOvernachtingen = $this->get_boekingOvernachtingen();
+            $boekingBeginTijd = $this->get_boekingBeginTijd();
+            $boekingEindTijd = $this->get_boekingEindTijd();
 
+            $sql = "INSERT INTO boekingen ( boekingStartLocatie, boekingHoeveelDagen, boekingEindLocatie, boekingPauzePlaatsen, boekingOvernachtingen, boekingBeginTijd, boekingEindTijd)
+            VALUES ('$boekingStartLocatie', '$boekingHoeveelDagen', '$boekingEindLocatie', '$boekingPauzePlaatsen', '$boekingOvernachtingen', '$boekingBeginTijd', '$boekingEindTijd')";
 
-
+            $conn->exec($sql);
+            echo "<h1>De boeking is aangemaakt</h1>";
+        } catch (PDOException $e) {
+            echo $sql . "<br>" . $e->getMessage();
+        }
+    }
 
 
 
