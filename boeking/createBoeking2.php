@@ -2,11 +2,12 @@
 require "boeking.php";
 
 $StartDatum = $_POST["StartDatum"];
+$EindDatum = $_POST["EindDatum"];
 $PINCode = $_POST["PINCode"];
 
 
 
-$boeking1 = new boekingen ($StartDatum, $PINCode);
+$boeking1 = new boekingen ($StartDatum, $EindDatum, $PINCode);
 $boeking1->createBoekingen();
 $boeking1->boekingenAfdrukken();
 

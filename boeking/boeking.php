@@ -8,7 +8,6 @@ class boekingen
     public $EindDatum;
     public $PINCode;
 
-
     function __construct($StartDatum = NULL, $EindDatum = NULL, $PINCode = NULL)
     {
         $this->StartDatum = $StartDatum;
@@ -48,7 +47,6 @@ class boekingen
         return $this->PINCode;
     }
 
-
 // Geeft de aangemaakte boeking weer op het scherm
     public function boekingenAfdrukken()
     {
@@ -68,7 +66,7 @@ class boekingen
             $EindDatum = $this->get_EindDatum();
             $PINCode = $this->get_PINCode();
 
-            $sql = "INSERT INTO boekingen (StartDatum, Eindatum, PINCode)
+            $sql = "INSERT INTO boekingen (StartDatum, EindDatum, PINCode)
             VALUES ('$StartDatum','$EindDatum','$PINCode')";
 
             $conn->exec($sql);
@@ -82,7 +80,7 @@ class boekingen
         require "../connect.php";
         echo "Startdatum: " . $this->get_StartDatum();
         echo "<br/>";
-        echo "Einddatum: " . $this->get_EindDatum();
+        echo "EindDatum: " . $this->get_EindDatum();
         echo "<br/>";
         echo "PINCode: " . $this->get_PINCode();
         echo "<br/>";
