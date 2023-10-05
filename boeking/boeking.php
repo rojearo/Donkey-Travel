@@ -1,135 +1,167 @@
 <?php
 //main page voor de boekingen CRUD+S
+error_reporting(E_ERROR | E_PARSE);
 
-class Boeking
+class boekingen
 {
-    public $boekingStartLocatie;
-    public $boekingHoeveelDagen;
-    public $boekingEindLocatie;
-    public $boekingPauzePlaatsen;
-    public $boekingOvernachtingen;
-    public $boekingBeginTijd;
-    public $boekingEindTijd;
+    public $StartDatum;
+    public $EindDatum;
+    public $PINCode;
 
-    function __construct($boekingStartLocatie = NULL, $boekingHoeveelDagen = NULL, $boekingEindLocatie = NULL, $boekingPauzePlaatsen = NULL, $boekingOvernachtingen = NULL, $boekingBeginTijd = NULL, $boekingEindTijd = NULL)
+
+    function __construct($StartDatum = NULL, $EindDatum = NULL, $PINCode = NULL)
     {
-        $this->boekingStartLocatie = $boekingStartLocatie;
-        $this->boekingHoeveelDagen = $boekingHoeveelDagen;
-        $this->boekingEindLocatie = $boekingEindLocatie;
-        $this->boekingPauzePlaatsen = $boekingPauzePlaatsen;
-        $this->boekingOvernachtingen = $boekingOvernachtingen;
-        $this->boekingBeginTijd = $boekingBeginTijd;
-        $this->boekingEindTijd = $boekingEindTijd;
+        $this->StartDatum = $StartDatum;
+        $this->EindDatum = $EindDatum;
+        $this->PINCode = $PINCode;
+
     }
 
     // Setters -----------------------------------------------------------------------------------------------------
 
-    public function set_boekingStartLocatie($boekingStartLocatie)
+    public function set_StartDatum($StartDatum)
     {
-        $this->boekingStartLocatie = $boekingStartLocatie;
+        $this->StartDatum = $StartDatum;
+    }
+    public function set_EindDatum($EindDatum)
+    {
+        $this->EindDatum = $EindDatum;
     }
 
-    public function set_boekingHoeveelDagen($boekingHoeveelDagen)
+    public function set_PINCode($PINCode)
     {
-        $this->boekingHoeveelDagen = $boekingHoeveelDagen;
-    }
-
-    public function set_boekingEindLocatie($boekingEindLocatie)
-    {
-        $this->boekingEindLocatie = $boekingEindLocatie;
-    }
-
-    public function set_boekingPauzePlaatsen($boekingPauzePlaatsen)
-    {
-        $this->boekingPauzePlaatsen = $boekingPauzePlaatsen;
-    }
-
-    public function set_boekingOvernachtingen($boekingOvernachtingen)
-    {
-        $this->boekingOvernachtingen = $boekingOvernachtingen;
-    }
-
-    public function set_boekingBeginTijd($boekingBeginTijd)
-    {
-        $this->boekingBeginTijd = $boekingBeginTijd;
-    }
-    public function set_boekingEindtijd($boekingEindTijd)
-    {
-        $this->boekingEindTijd = $boekingEindTijd;
+        $this->PINCode = $PINCode;
     }
 
     // Getters -----------------------------------------------------------------------------------------------------
 
-    public function get_boekingStartLocatie()
+    public function get_StartDatum()
     {
-        return $this->boekingStartLocatie;
+        return $this->StartDatum;
+    }
+    public function get_EindDatum()
+    {
+        return $this->EindDatum;
+    }
+    public function get_PINCode()
+    {
+        return $this->PINCode;
     }
 
-    public function get_boekingHoeveelDagen()
-    {
-        return $this->boekingHoeveelDagen;
-    }
-    public function get_boekingEindLocatie()
-    {
-        return $this->boekingEindLocatie;
-    }
-    public function get_boekingPauzePlaatsen()
-    {
-        return $this->boekingPauzePlaatsen;
-    }
-    public function get_boekingOvernachtingen()
-    {
-        return $this->boekingOvernachtingen;
-    }
-
-    public function get_boekingBeginTijd()
-    {
-        return $this->boekingBeginTijd;
-    }
-    public function get_boekingEindTijd()
-    {
-        return $this->boekingEindTijd;
-    }
 
 // Geeft de aangemaakte boeking weer op het scherm
-    public function boekingAfdrukken()
+    public function boekingenAfdrukken()
     {
-        echo $this->get_boekingStartLocatie();
+        echo $this->get_StartDatum();
         echo "<br/>";
-        echo $this->get_boekingHoeveelDagen();
+        echo $this->get_EindDatum();
         echo "<br/>";
-        echo $this->get_boekingEindLocatie();
-        echo "<br/><br/>";
-        echo $this->get_boekingPauzePlaatsen();
-        echo "<br/><br/>";
-        echo $this->get_boekingOvernachtingen();
-        echo "<br/><br/>";
-        echo $this->get_boekingBeginTijd();
-        echo "<br/><br/>";
-        echo $this->get_boekingEindTijd();
-        echo "<br/><br/>";
+        echo $this->get_PINCode();
     }
 
 // De function om de boeking te maken
-    public function createBoeking()
+    public function createBoekingen()
     {
-        require "../config.php";
+        require "../connect.php";
         try {
-            $boekingStartLocatie = $this->get_boekingStartLocatie();
-            $boekingHoeveelDagen = $this->get_boekingHoeveelDagen();
-            $boekingEindLocatie = $this->get_boekingEindLocatie();
-            $boekingPauzePlaatsen = $this->get_boekingPauzePlaatsen();
-            $boekingOvernachtingen = $this->get_boekingOvernachtingen();
-            $boekingBeginTijd = $this->get_boekingBeginTijd();
-            $boekingEindTijd = $this->get_boekingEindTijd();
+            $StartDatum = $this->get_StartDatum();
+            $EindDatum = $this->get_EindDatum();
+            $PINCode = $this->get_PINCode();
 
-            $sql = "INSERT INTO boekingen ( boekingStartLocatie, boekingHoeveelDagen, boekingEindLocatie, boekingPauzePlaatsen, boekingOvernachtingen, boekingBeginTijd, boekingEindTijd)
-            VALUES ('$boekingStartLocatie', '$boekingHoeveelDagen', '$boekingEindLocatie', '$boekingPauzePlaatsen', '$boekingOvernachtingen', '$boekingBeginTijd', '$boekingEindTijd')";
+            $sql = "INSERT INTO boekingen (StartDatum, Eindatum, PINCode)
+            VALUES ('$StartDatum','$EindDatum','$PINCode')";
 
             $conn->exec($sql);
             echo "<h1>De boeking is aangemaakt</h1>";
         } catch (PDOException $e) {
             echo $sql . "<br>" . $e->getMessage();
+        }
+    }
+    public function afdrukkenBoekingen()
+    {
+        require "../connect.php";
+        echo "Startdatum: " . $this->get_StartDatum();
+        echo "<br/>";
+        echo "Einddatum: " . $this->get_EindDatum();
+        echo "<br/>";
+        echo "PINCode: " . $this->get_PINCode();
+        echo "<br/>";
+    }
+
+    function readBoeking()
+    {
+        require "../connect.php";
+        $sql = $conn->prepare('SELECT * FROM boekingen');
+        $sql->execute();
+
+        foreach ($sql as $boeking) {
+            echo '<tr>';
+            echo '<td> <th>Startdatum: </th>' . $StartDatum['StartDatum'] . '</td> <br>';
+            echo '<td> <th>Einddatum: </th>' . $EindDatum['EindDatum'] . '</td> <br>';
+            echo '<td> <th>PINCode: </th>' . $PINCode['PINCode'] . '</td> <br>';
+            echo '</tr> <br>';
+        }
+
+        echo '</table></div>';
+    }
+
+    public function updateBoeking($id)
+    {
+        try {
+            require "../connect.php";
+            $StartDatum = $this->get_StartDatum();
+            $EindDatum = $this->get_EindDatum();
+            $PINCode = $this->get_PINCode();
+
+            $sql = "UPDATE boeking SET StartDatum = '$StartDatum', EindDatum = '$EindDatum', PINCode = '$PINCode'
+                    WHERE id = '$id'";
+            $conn->exec($sql);
+
+            echo "Boeking succesvol aangepast!" . "<br/>" . "<br/>";
+        } catch (PDOException $e) {
+            echo $sql . "<br>" . $e->getMessage();
+        }
+    }
+
+    public function verwijderBoeking($id)
+    {
+        try {
+            require "../connect.php";
+            $sql = "DELETE FROM boekingen
+                    WHERE id = '$id'";
+            $conn->exec($sql);
+
+            echo "Boeking  verwijderd" . "<br/>" . "<br/>";
+        } catch (PDOException $e) {
+            echo $sql . "<br>" . $e->getMessage();
+        }
+    }
+
+    public function zoekBoeking($id)
+    {
+        require "../connect.php";
+
+        try {
+            $sql = $conn->prepare("
+                    SELECT id, StartDatum, EindDatum, PINCode FROM boekingen WHERE id = :id");
+            $sql->bindParam(':id', $id);
+            $sql->execute();
+
+            $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+            if ($boeking=$result[0]) {
+                $this->set_StartDatum($boeking["StartDatum"]);
+                $this->set_EindDatum($boeking["EindDatum"]);
+                $this->set_PINCode($boeking["PINCode"]);
+
+            } else {
+                throw new PDOException("Boeking niet gevonden");
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            echo '<a href="../homepage.php">Terug naar het hoofdmenu</a>' .
+                '</div>';
+            exit;
         }
     }
 

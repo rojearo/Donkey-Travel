@@ -1,19 +1,14 @@
 <?php
+require "boeking.php";
+
+$StartDatum = $_POST["StartDatum"];
+$PINCode = $_POST["PINCode"];
 
 
 
-$boekingStartLocatie = $_POST["boekingStartLocatie"];
-$boekingHoeveelDagen = $_POST["boekingHoeveelDagen"];
-$boekingEindLocatie = $_POST["boekingEindLocatie"];
-$boekingPauzePlaatsen = $_POST["boekingPauzePlaatsen"];
-$boekingOvernachtingen = $_POST["boekingOvernachtingen"];
-$boekingBeginTijd = $_POST["boekingBeginTijd"];
-$boekingEindTijd = $_POST["boekingEindTijd"];
-
-
-$boeking1 = new Boeking ($boekingStartLocatie, $boekingHoeveelDagen, $boekingEindLocatie, $boekingPauzePlaatsen, $boekingOvernachtingen, $boekingBeginTijd, $boekingEindTijd);
-$boeking1->createBoeking();
-$boeking1->boekingAfdrukken();
+$boeking1 = new boekingen ($StartDatum, $PINCode);
+$boeking1->createBoekingen();
+$boeking1->boekingenAfdrukken();
 
 ?>
 
@@ -28,7 +23,7 @@ $boeking1->boekingAfdrukken();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-
+<body>
 <h1></h1>
 <button><a href="../" style="background-color: #212121; font-family: 'Arial Black'; color: white; border-radius: 30px;
         text-decoration: none;">Terug naar het hoofdmenu </a></button>

@@ -13,54 +13,18 @@ include("boeking.php");
     <link rel="stylesheet" href="../">
     <title>boeking plaatsen</title>
 </head>
+<body>
         <h1>Boeking plaatsen</h1>
         <form action="createBoeking2.php" method="post">
 
-            <label for="BSL">Start locatie:</label>
-            <select name="boekingStartLocatie" id="boekingStartLocatie">
-                <option>Hier</option>
-                <option>Daar</option>
-                <option>Hierzo</option>
-                <option>Daarzo</option>
-            </select>
-            <br>
-            <label for="BHD">Hoeveel dagen:</label>
-            <select name="boekingHoeveelDagen" id="boekingHoeveelDagen">
-                <option>1 dag</option>
-                <option>2 dagen</option>
-                <option>5 dagen</option>
-                <option>7 dagen</option>
-            </select>
-            <br>
-            <label for="BEL">Eind locatie:</label>
-            <select name="boekingEindLocatie" id="boekingEindLocatie">
-                <option>Hier</option>
-                <option>Daar</option>
-                <option>Hierzo</option>
-                <option>Daarzo</option>
-            </select>
-            <br>
-            <label for="BPP">Pauzeplaats:</label>
-            <select name="boekingPauzePlaatsen" id="boekingPauzePlaatsen">
-                <option>Pauzeplaats Hier</option>
-                <option>Pauzeplaats Daar</option>
-                <option>Pauzeplaats Hierzo</option>
-                <option>Pauzeplaats Daarzo</option>
-            </select>
-            <br>
-            <label for="BO">Overnachting locatie:</label>
-            <select name="boekingOvernachting" id="boekingOvernachting">
-                <option>Overnachting Hier</option>
-                <option>Overnachting Daar</option>
-                <option>Overnachting Hierzo</option>
-                <option>Overnachting Daarzo</option>
-            </select>
-            <br>
-            <label for="BBT">Begin tijd:</label>
-            <input type="date" name="boekingBeginTijd" id="boekingBeginTijd" required><br>
+            <label for="SD">Startdatum:</label>
+            <input type="date" name="StartDatum" id="StartDatum" required><br>
 
-            <label for="BET">Eind tijd:</label>
-            <input type="date" name="boekingEindTijd" id="boekingEindTijd" required><br>
+            <label for="ED">Einddatum:</label>
+            <input type="date" name="EindDatum" id="EindDatum" required><br>
+
+            <label for="PIN">PINCode:</label>
+            <input type="text" name="PINCode" id="PIN" required><br>
 
             <div class="submitButton">
                 <input type="submit" value="Boeking plaatsen"
@@ -68,7 +32,5 @@ include("boeking.php");
                      style="background-color: #212121; font-family: 'Arial Black'; color: white; border-radius: 30px;">
                 </div>
         </form>
-    </div>
-
 </body>
 </html>
