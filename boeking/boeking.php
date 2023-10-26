@@ -94,9 +94,9 @@ class boekingen
 
         foreach ($sql as $boeking) {
             echo '<tr>';
-            echo '<td> <th>Startdatum: </th>' . $StartDatum['StartDatum'] . '</td> <br>';
-            echo '<td> <th>Einddatum: </th>' . $EindDatum['EindDatum'] . '</td> <br>';
-            echo '<td> <th>PINCode: </th>' . $PINCode['PINCode'] . '</td> <br>';
+            echo '<td> <th>Startdatum: </th>' . $boeking['StartDatum'] . '</td> <br>';
+            echo '<td> <th>Einddatum: </th>' . $boeking['EindDatum'] . '</td> <br>';
+            echo '<td> <th>PINCode: </th>' . $boeking['PINCode'] . '</td> <br>';
             echo '</tr> <br>';
         }
 
