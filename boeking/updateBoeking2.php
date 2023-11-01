@@ -37,6 +37,6 @@ padding: 20px; margin: 100px; display: flex; text-align: center; flex-direction:
     </form>
 
     <a href="../homepage.php" style="background-color: #212121; font-family: 'Arial Black'; color: white; border-radius: 30px;
-        text-decoration: none;">Back to main menu</a>
+        text-decoration: none;">Terug naar het hoofdmenu</a>
 </body>
 </html>
