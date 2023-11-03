@@ -60,7 +60,7 @@ class boekingen
 // De function om de boeking te maken
     public function createBoekingen()
     {
-        require "../connect.php";
+        require "../login/connect.php";
         try {
             $StartDatum = $this->get_StartDatum();
             $EindDatum = $this->get_EindDatum();
@@ -77,7 +77,7 @@ class boekingen
     }
     public function afdrukkenBoekingen()
     {
-        require "../connect.php";
+        require "../login/connect.php";
         echo "Startdatum: " . $this->get_StartDatum();
         echo "<br/>";
         echo "EindDatum: " . $this->get_EindDatum();
@@ -88,7 +88,7 @@ class boekingen
 
     function readBoeking()
     {
-        require "../connect.php";
+        require "../login/connect.php";
         $sql = $conn->prepare('SELECT * FROM boekingen');
         $sql->execute();
 
@@ -106,7 +106,7 @@ class boekingen
     public function updateBoeking($id)
     {
         try {
-            require "../connect.php";
+            require "../login/connect.php";
             $StartDatum = $this->get_StartDatum();
             $EindDatum = $this->get_EindDatum();
             $PINCode = $this->get_PINCode();
@@ -124,7 +124,7 @@ class boekingen
     public function verwijderBoeking($id)
     {
         try {
-            require "../connect.php";
+            require "../login/connect.php";
             $sql = "DELETE FROM boekingen
                     WHERE id = '$id'";
             $conn->exec($sql);
@@ -137,7 +137,7 @@ class boekingen
 
     public function zoekBoeking($id)
     {
-        require "../connect.php";
+        require "../login/connect.php";
 
         try {
             $sql = $conn->prepare("
@@ -157,7 +157,7 @@ class boekingen
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
-            echo '<a href="../homepage.php">Terug naar het hoofdmenu</a>' .
+            echo '<a href="">Terug naar het hoofdmenu</a>' .
                 '</div>';
             exit;
         }

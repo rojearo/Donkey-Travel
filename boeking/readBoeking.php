@@ -1,5 +1,5 @@
 <?php
-include("../connect.php");
+include("../login/connect.php");
 include("boeking.php");
 ?>
     <!doctype html>
