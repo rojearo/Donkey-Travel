@@ -18,6 +18,6 @@ echo "Einddatum aanpassen: " . $eindDatum . "<br/>";
 <body>
 
 <a href="" style="background-color: #212121; font-family: 'Arial Black'; color: white; border-radius: 30px;
-        text-decoration: none;">Terug naar het hoofdmenu</a>
+        text-decoration: none;">Back to main menu</a>
 </body>
 

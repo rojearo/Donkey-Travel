@@ -16,6 +16,6 @@ padding: 20px; margin: 100px; display: flex; text-align: center; flex-direction:
         <input type="submit" value="Edit" style="
                     background-color: #212121; font-family: 'Arial Black'; color: white; border-radius: 30px;">
     </form>
-    <a href="" style="color: white; text-decoration: none"><br/>Terug naar het hoofdmenu</a>
+    <a href="" style="color: white; text-decoration: none"><br/>Back to main menu</a>
 </body>
 </html>

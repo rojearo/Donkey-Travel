@@ -135,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="shortcut icon" href="./img/favicon-16x16.png" type="image/x-icon">
-    <script defer src="./js/script.js"></script>
+    <link rel="stylesheet" href="../CSS-stylesheet/startPagina.css">
 </head>
 
 <body>
@@ -168,7 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="mb-3">
                         <input type="submit" class="btn btn-primary form-control" name="submit" value="Sign Up">
                     </div>
-                    <p class="mb-0">Al een account? <a href="./login.php">Log In</a></p>
+                    <p class="mb-0">Al een account? <a href="login.php">Log In</a></p>
                 </form>
             </div>
         </div>
