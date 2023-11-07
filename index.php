@@ -20,7 +20,7 @@
     Loading...
   </div>
   <div class="text-container">
-      <a href="views/startScherm.php" class="glowing-link">
+      <a href="startScherm.php" class="glowing-link">
           <h1 class="glowing-title">Donkey Travel</h1>
           <p class="glowing-slogan">Press to Continue</p>
       </a>
